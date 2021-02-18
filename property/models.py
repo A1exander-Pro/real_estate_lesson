@@ -11,7 +11,7 @@ class Flat(models.Model):
     owners_phonenumber = models.CharField("Номер владельца", max_length=20)
     created_at = models.DateTimeField("Когда создано объявление",
                                       default=timezone.now, db_index=True)
-    new_building = models.NullBooleanField()
+    new_building = models.NullBooleanField(db_index=True)
     description = models.TextField("Текст объявления", blank=True)
     price = models.IntegerField("Цена квартиры", db_index=True)
     town = models.CharField("Город, где находится квартира",
