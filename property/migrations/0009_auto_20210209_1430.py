@@ -9,8 +9,7 @@ def phonenumber_format(apps, schema_editor):
         phone = flat.owners_phonenumber
         parsed_phone = phonenumbers.parse(phone, 'RU')
         if phonenumbers.is_valid_number(parsed_phone):
-            formated_phone = phonenumbers.format_number(parsed_phone, phonenumbers.PhoneNumberFormat.E164)
-            flat.owner_pure_phone = formated_phone
+            flat.owner_pure_phone = phonenumbers.format_number(parsed_phone, phonenumbers.PhoneNumberFormat.E164)
             flat.save()
         else:
             flat.owner_pure_phone = ''
